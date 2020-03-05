@@ -10,20 +10,24 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {ThemeContext} from './src/theme';
 import {theme} from './src/theme';
 import {HomeScreen} from './src/screens';
+
 
 const RootStack = createStackNavigator();
 const App = () => {
   return (
     <>
       <ThemeContext.Provider value={theme}>
+        <SafeAreaProvider>
         <NavigationContainer>
           <RootStack.Navigator headerMode="none">
             <RootStack.Screen name="Home" component={HomeScreen} />
           </RootStack.Navigator>
         </NavigationContainer>
+        </SafeAreaProvider>
       </ThemeContext.Provider>
     </>
   );

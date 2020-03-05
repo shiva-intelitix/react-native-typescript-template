@@ -1,20 +1,22 @@
 import React, {useContext} from 'react';
-import {SafeAreaView, ScrollView, StatusBar} from 'react-native';
+import {ScrollView, StatusBar, View} from 'react-native';
+import {useSafeArea} from 'react-native-safe-area-context';
 import {Home} from '../components/Home';
 import {ThemeContext} from '../theme';
 
 const HomeScreen = () => {
   const {stylesheet} = useContext(ThemeContext);
+  const insets = useSafeArea();
   return (
     <>
       <StatusBar barStyle="light-content" />
-      <SafeAreaView style={stylesheet.safeAreaView}>
+      <View style={{paddingTop:insets.top}}>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           contentContainerStyle={stylesheet.scrollView}>
           <Home />
         </ScrollView>
-      </SafeAreaView>
+        </View>
     </>
   );
 };
