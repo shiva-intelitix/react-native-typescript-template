@@ -1,0 +1,9 @@
+{
+  "name": "ReactNativeTypescriptStarter",
+  "version": "0.0.1",
+  "description": "React Native Template with dependencies for the react native agritrac app.",
+  "files": [
+    "template",
+    "template.config.js"
+  ]
+}
